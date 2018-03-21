@@ -8,12 +8,15 @@ import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
 import { UserComponent } from './components/user.component';
 import { HomeComponent } from './components/home.component';
-import { UserService} from './Service/user.service'
+import { LoginComponent } from './components/login.component';
+import { UserService } from './Service/user.service';
+import { LoginService } from './Service/login.service';
+import { AuthGuard } from './_guards/auth'
 
 @NgModule({
     imports: [BrowserModule, ReactiveFormsModule, HttpModule, routing, Ng2Bs3ModalModule],
-    declarations: [AppComponent, UserComponent, HomeComponent],
-    providers: [{ provide: APP_BASE_HREF, useValue: '/' }, UserService],
+    declarations: [AppComponent, UserComponent, HomeComponent, LoginComponent],
+    providers: [{ provide: APP_BASE_HREF, useValue: '/' }, UserService, LoginService, AuthGuard],
     bootstrap: [AppComponent]
 
 })

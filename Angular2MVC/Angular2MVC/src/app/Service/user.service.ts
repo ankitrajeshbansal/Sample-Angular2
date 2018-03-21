@@ -41,6 +41,7 @@ export class UserService {
             .map((response: Response) => <any>response.json())
             .catch(this.handleError);
     }
+    
 
     private handleError(error: Response) {
         console.error(error);

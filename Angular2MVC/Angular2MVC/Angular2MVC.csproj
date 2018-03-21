@@ -161,9 +161,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AuthApiController.cs" />
     <Compile Include="Controllers\BaseAPIController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserAPIController.cs" />
+    <Compile Include="DBContext\TblAuth.cs">
+      <DependentUpon>UserDBEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="DBContext\TblUser.cs">
       <DependentUpon>UserDBEntities.tt</DependentUpon>
     </Compile>
@@ -252,9 +256,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="tslint.json" />
     <Content Include="src\tsconfig.json" />
+    <Content Include="src\app\Components\login.component.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="Views\AuthApi\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -281,12 +287,15 @@
     <TypeScriptCompile Include="src\app\app.module.ts" />
     <TypeScriptCompile Include="src\app\app.routing.ts" />
     <TypeScriptCompile Include="src\app\Components\home.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\login.component.ts" />
     <TypeScriptCompile Include="src\app\Components\user.component.ts" />
     <TypeScriptCompile Include="src\app\main.ts" />
     <TypeScriptCompile Include="src\app\Model\user.ts" />
+    <TypeScriptCompile Include="src\app\Service\login.service.ts" />
     <TypeScriptCompile Include="src\app\Service\user.service.ts" />
     <TypeScriptCompile Include="src\app\Shared\enum.ts" />
     <TypeScriptCompile Include="src\app\Shared\global.ts" />
+    <TypeScriptCompile Include="src\app\_guards\auth.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

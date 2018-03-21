@@ -15,16 +15,11 @@ var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/do");
 require("rxjs/add/operator/catch");
-var UserService = /** @class */ (function () {
-    function UserService(_http) {
+var LoginService = /** @class */ (function () {
+    function LoginService(_http) {
         this._http = _http;
     }
-    UserService.prototype.get = function (url) {
-        return this._http.get(url)
-            .map(function (response) { return response.json(); })
-            .catch(this.handleError);
-    };
-    UserService.prototype.post = function (url, model) {
+    LoginService.prototype.post = function (url, model) {
         var body = JSON.stringify(model);
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
@@ -32,30 +27,15 @@ var UserService = /** @class */ (function () {
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
-    UserService.prototype.put = function (url, id, model) {
-        var body = JSON.stringify(model);
-        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        var options = new http_1.RequestOptions({ headers: headers });
-        return this._http.put(url + id, body, options)
-            .map(function (response) { return response.json(); })
-            .catch(this.handleError);
-    };
-    UserService.prototype.delete = function (url, id) {
-        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        var options = new http_1.RequestOptions({ headers: headers });
-        return this._http.delete(url + id, options)
-            .map(function (response) { return response.json(); })
-            .catch(this.handleError);
-    };
-    UserService.prototype.handleError = function (error) {
+    LoginService.prototype.handleError = function (error) {
         console.error(error);
         return Observable_1.Observable.throw(error.json().error || 'Server error');
     };
-    UserService = __decorate([
+    LoginService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http])
-    ], UserService);
-    return UserService;
+    ], LoginService);
+    return LoginService;
 }());
-exports.UserService = UserService;
-//# sourceMappingURL=user.service.js.map
+exports.LoginService = LoginService;
+//# sourceMappingURL=login.service.js.map

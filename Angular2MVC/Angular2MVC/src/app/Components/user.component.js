@@ -115,16 +115,15 @@ var UserComponent = /** @class */ (function () {
     };
     __decorate([
         core_1.ViewChild('modal'),
-        __metadata("design:type", typeof (_a = typeof ng2_bs3_modal_1.ModalComponent !== "undefined" && ng2_bs3_modal_1.ModalComponent) === "function" && _a || Object)
+        __metadata("design:type", ng2_bs3_modal_1.ModalComponent)
     ], UserComponent.prototype, "modal", void 0);
     UserComponent = __decorate([
         core_1.Component({
             templateUrl: 'src/app/Components/user.component.html'
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof forms_1.FormBuilder !== "undefined" && forms_1.FormBuilder) === "function" && _b || Object, user_service_1.UserService])
+        __metadata("design:paramtypes", [forms_1.FormBuilder, user_service_1.UserService])
     ], UserComponent);
     return UserComponent;
-    var _a, _b;
 }());
 exports.UserComponent = UserComponent;
 //# sourceMappingURL=user.component.js.map

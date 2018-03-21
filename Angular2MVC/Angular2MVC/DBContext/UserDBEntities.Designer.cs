@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\R&D\angular2MVC_Finish\Angular2MVC\Angular2MVC\DBContext\UserDBEntities.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\R & D\angular 2\Sample-Angular2\Angular2MVC\Angular2MVC\DBContext\UserDBEntities.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

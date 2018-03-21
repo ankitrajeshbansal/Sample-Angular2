@@ -26,5 +26,6 @@ namespace Angular2MVC.DBContext
         }
     
         public virtual DbSet<TblUser> TblUsers { get; set; }
+        public virtual DbSet<TblAuth> TblAuths { get; set; }
     }
 }

@@ -16,15 +16,18 @@ var http_1 = require("@angular/http");
 var app_routing_1 = require("./app.routing");
 var user_component_1 = require("./components/user.component");
 var home_component_1 = require("./components/home.component");
+var login_component_1 = require("./components/login.component");
 var user_service_1 = require("./Service/user.service");
+var login_service_1 = require("./Service/login.service");
+var auth_1 = require("./_guards/auth");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.ReactiveFormsModule, http_1.HttpModule, app_routing_1.routing, ng2_bs3_modal_1.Ng2Bs3ModalModule],
-            declarations: [app_component_1.AppComponent, user_component_1.UserComponent, home_component_1.HomeComponent],
-            providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, user_service_1.UserService],
+            declarations: [app_component_1.AppComponent, user_component_1.UserComponent, home_component_1.HomeComponent, login_component_1.LoginComponent],
+            providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, user_service_1.UserService, login_service_1.LoginService, auth_1.AuthGuard],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);
