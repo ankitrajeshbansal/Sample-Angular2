@@ -6,9 +6,9 @@ import { AppComponent } from './app.component';
 import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
 import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
-import { UserComponent } from './components/user.component';
-import { HomeComponent } from './components/home.component';
-import { LoginComponent } from './components/login.component';
+import { UserComponent } from './components/user/user.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 import { UserService } from './Service/user.service';
 import { LoginService } from './Service/login.service';
 import { AuthGuard } from './_guards/auth'

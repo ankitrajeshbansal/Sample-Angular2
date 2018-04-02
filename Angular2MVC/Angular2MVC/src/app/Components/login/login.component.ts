@@ -2,11 +2,11 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { LoginService } from '../Service/login.service';
-import { Global } from '../Shared/global';
+import { LoginService } from '../../Service/login.service';
+import { Global } from '../../Shared/global';
 
 @Component({
-    templateUrl: 'src/app/Components/login.component.html'
+    templateUrl: 'src/app/Components/login/login.component.html'
 })
 
 export class LoginComponent implements OnInit{

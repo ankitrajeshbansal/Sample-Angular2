@@ -1,14 +1,14 @@
 ﻿import { Component, OnInit, ViewChild } from '@angular/core';
-import { UserService } from '../Service/user.service';
+import { UserService } from '../../Service/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
-import { IUser } from '../Model/user';
-import { DBOperation } from '../Shared/enum';
+import { IUser } from '../../Model/user';
+import { DBOperation } from '../../Shared/enum';
 import { Observable } from 'rxjs/Rx';
-import { Global } from '../Shared/global';
+import { Global } from '../../Shared/global';
 
 @Component({
-    templateUrl: 'src/app/Components/user.component.html'
+    templateUrl: 'src/app/Components/user/user.component.html'
 })
 
 export class UserComponent implements OnInit {

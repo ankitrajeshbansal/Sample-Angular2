@@ -238,7 +238,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="src\app\Components\user.component.html" />
+    <Content Include="src\app\Components\user\user.component.html" />
     <Content Include="src\systemjs.config.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -256,7 +256,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="tslint.json" />
     <Content Include="src\tsconfig.json" />
-    <Content Include="src\app\Components\login.component.html" />
+    <Content Include="src\app\Components\login\login.component.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -286,9 +286,9 @@
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
     <TypeScriptCompile Include="src\app\app.routing.ts" />
-    <TypeScriptCompile Include="src\app\Components\home.component.ts" />
-    <TypeScriptCompile Include="src\app\Components\login.component.ts" />
-    <TypeScriptCompile Include="src\app\Components\user.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\home\home.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\login\login.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\user\user.component.ts" />
     <TypeScriptCompile Include="src\app\main.ts" />
     <TypeScriptCompile Include="src\app\Model\user.ts" />
     <TypeScriptCompile Include="src\app\Service\login.service.ts" />
