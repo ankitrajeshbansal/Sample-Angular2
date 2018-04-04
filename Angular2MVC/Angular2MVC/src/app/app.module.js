@@ -17,6 +17,7 @@ var app_routing_1 = require("./app.routing");
 var user_component_1 = require("./components/user/user.component");
 var home_component_1 = require("./components/home/home.component");
 var login_component_1 = require("./components/login/login.component");
+var usermanage_component_1 = require("./components/user/usermanage.component");
 var user_service_1 = require("./Service/user.service");
 var login_service_1 = require("./Service/login.service");
 var auth_1 = require("./_guards/auth");
@@ -26,7 +27,7 @@ var AppModule = /** @class */ (function () {
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.ReactiveFormsModule, http_1.HttpModule, app_routing_1.routing, ng2_bs3_modal_1.Ng2Bs3ModalModule],
-            declarations: [app_component_1.AppComponent, user_component_1.UserComponent, home_component_1.HomeComponent, login_component_1.LoginComponent],
+            declarations: [app_component_1.AppComponent, user_component_1.UserComponent, home_component_1.HomeComponent, login_component_1.LoginComponent, usermanage_component_1.UserManageComponent],
             providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, user_service_1.UserService, login_service_1.LoginService, auth_1.AuthGuard],
             bootstrap: [app_component_1.AppComponent]
         })

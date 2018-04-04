@@ -239,6 +239,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="src\app\Components\user\user.component.html" />
+    <Content Include="src\app\Components\user\usermanage.component.html" />
     <Content Include="src\systemjs.config.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -289,8 +290,10 @@
     <TypeScriptCompile Include="src\app\Components\home\home.component.ts" />
     <TypeScriptCompile Include="src\app\Components\login\login.component.ts" />
     <TypeScriptCompile Include="src\app\Components\user\user.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\user\usermanage.component.ts" />
     <TypeScriptCompile Include="src\app\main.ts" />
     <TypeScriptCompile Include="src\app\Model\user.ts" />
+    <TypeScriptCompile Include="src\app\Model\vmUser.ts" />
     <TypeScriptCompile Include="src\app\Service\login.service.ts" />
     <TypeScriptCompile Include="src\app\Service\user.service.ts" />
     <TypeScriptCompile Include="src\app\Shared\enum.ts" />

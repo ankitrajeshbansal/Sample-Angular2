@@ -39,36 +39,4 @@
         </div>
     </div>
 </div>
-
-<modal #modal>
-    <form novalidate (ngSubmit)="onSubmit(userFrm)" [formGroup]="userFrm">
-        <modal-header [show-close]="true">
-            <h4 class="modal-title">{{modalTitle}}</h4>
-        </modal-header>
-        <modal-body>
-            <div class="form-group">
-                <div>
-                    <span>Full name*</span>
-                    <input type="text" class="form-control" placeholder="First Name" formControlName="FirstName">
-                </div>
-                <div>
-                    <span>Full name</span>
-                    <input type="text" class="form-control" placeholder="Last Name" formControlName="LastName">
-                </div>
-                <div>
-                    <span>Gender*</span>
-                    <select formControlName="Gender" class="form-control">
-                        <option>Male</option>
-                        <option>Female</option>
-                    </select>
-                </div>
-            </div>
-        </modal-body>
-        <modal-footer>
-            <div>
-                <a class="btn btn-default" (click)="modal.dismiss()">Cancel</a>
-                <button type="submit" [disabled]="userFrm.invalid" class="btn btn-primary">{{modalBtnTitle}}</button>
-            </div>
-        </modal-footer>
-    </form>
-</modal>
+<user-manage [vmuser]="vmuser" (onLoadUserChanged)="loadUserChanged()"></user-manage>
