@@ -65,6 +65,7 @@ var UserManageComponent = /** @class */ (function () {
     UserManageComponent.prototype.onSubmit = function (formData) {
         var _this = this;
         this.msg = "";
+        console.log(this.header.nativeElement.textContent);
         switch (this.vmuser.dbops) {
             case enum_1.DBOperation.create:
                 this._userService.post(global_1.Global.BASE_USER_ENDPOINT, formData._value).subscribe(function (data) {
@@ -125,6 +126,10 @@ var UserManageComponent = /** @class */ (function () {
         core_1.ViewChild('modal'),
         __metadata("design:type", ng2_bs3_modal_1.ModalComponent)
     ], UserManageComponent.prototype, "modal", void 0);
+    __decorate([
+        core_1.ViewChild('testHeader'),
+        __metadata("design:type", core_1.ElementRef)
+    ], UserManageComponent.prototype, "header", void 0);
     UserManageComponent = __decorate([
         core_1.Component({
             selector: 'user-manage',

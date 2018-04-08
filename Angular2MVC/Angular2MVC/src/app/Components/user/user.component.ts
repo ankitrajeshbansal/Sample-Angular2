@@ -1,4 +1,9 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import {
+    Component,
+    OnInit,
+    ViewChild,
+    ElementRef
+} from '@angular/core';
 import { UserService } from '../../Service/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
@@ -14,8 +19,8 @@ import { UserManageComponent } from '../user/usermanage.component'
 })
 
 export class UserComponent implements OnInit {
+    @ViewChild('testHeader') header: ElementRef;
 
-   
     users: IUser[];
     vmuser: IVmUser;   
     indLoading: boolean = false;
@@ -36,6 +41,7 @@ export class UserComponent implements OnInit {
     }
 
     addUser() {
+        console.log(this.header.nativeElement.textContent);
         this.vmuser.dbops = null;
         this.vmuser.dbops = DBOperation.create;
     }

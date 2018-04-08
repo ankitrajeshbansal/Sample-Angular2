@@ -31,6 +31,7 @@ var UserComponent = /** @class */ (function () {
             .subscribe(function (users) { _this.users = users; _this.indLoading = false; }, function (error) { return _this.msg = error; });
     };
     UserComponent.prototype.addUser = function () {
+        console.log(this.header.nativeElement.textContent);
         this.vmuser.dbops = null;
         this.vmuser.dbops = enum_1.DBOperation.create;
     };
@@ -47,6 +48,10 @@ var UserComponent = /** @class */ (function () {
     UserComponent.prototype.loadUserChanged = function () {
         this.LoadUsers();
     };
+    __decorate([
+        core_1.ViewChild('testHeader'),
+        __metadata("design:type", core_1.ElementRef)
+    ], UserComponent.prototype, "header", void 0);
     UserComponent = __decorate([
         core_1.Component({
             templateUrl: 'src/app/Components/user/user.component.html'

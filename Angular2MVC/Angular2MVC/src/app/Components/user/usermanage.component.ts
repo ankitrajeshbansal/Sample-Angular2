@@ -1,4 +1,15 @@
-﻿import { Component, OnInit, Input, SimpleChange, ViewChild, KeyValueDiffers, DoCheck, Output, EventEmitter } from '@angular/core';
+﻿import {
+    Component,
+    OnInit,
+    Input,
+    SimpleChange,
+    ViewChild,
+    KeyValueDiffers,
+    DoCheck,
+    Output,
+    EventEmitter,
+    ElementRef
+} from '@angular/core';
 import { UserService } from '../../Service/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
@@ -65,17 +76,16 @@ export class UserManageComponent implements OnInit {
                     this.modalBtnTitle = "Delete";
                     this.userFrm.setValue(this.vmuser.User);
                     this.modal.open();
-                    break;                    
+                    break;
             }
-            
+
         } else {
             console.log('nothing changed');
         }
     }
-    
+
     onSubmit(formData: any) {
         this.msg = "";
-
         switch (this.vmuser.dbops) {
             case DBOperation.create:
                 this._userService.post(Global.BASE_USER_ENDPOINT, formData._value).subscribe(
