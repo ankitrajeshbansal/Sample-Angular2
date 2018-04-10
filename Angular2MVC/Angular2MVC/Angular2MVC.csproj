@@ -296,6 +296,7 @@
     <TypeScriptCompile Include="src\app\Model\vmUser.ts" />
     <TypeScriptCompile Include="src\app\Service\login.service.ts" />
     <TypeScriptCompile Include="src\app\Service\user.service.ts" />
+    <TypeScriptCompile Include="src\app\Shared\donotpaste.directive.ts" />
     <TypeScriptCompile Include="src\app\Shared\enum.ts" />
     <TypeScriptCompile Include="src\app\Shared\global.ts" />
     <TypeScriptCompile Include="src\app\_guards\auth.ts" />

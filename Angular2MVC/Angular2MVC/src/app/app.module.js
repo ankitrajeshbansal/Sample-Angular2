@@ -21,13 +21,21 @@ var usermanage_component_1 = require("./components/user/usermanage.component");
 var user_service_1 = require("./Service/user.service");
 var login_service_1 = require("./Service/login.service");
 var auth_1 = require("./_guards/auth");
+var donotpaste_directive_1 = require("./Shared/donotpaste.directive");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.ReactiveFormsModule, http_1.HttpModule, app_routing_1.routing, ng2_bs3_modal_1.Ng2Bs3ModalModule],
-            declarations: [app_component_1.AppComponent, user_component_1.UserComponent, home_component_1.HomeComponent, login_component_1.LoginComponent, usermanage_component_1.UserManageComponent],
+            declarations: [
+                app_component_1.AppComponent,
+                user_component_1.UserComponent,
+                home_component_1.HomeComponent,
+                login_component_1.LoginComponent,
+                usermanage_component_1.UserManageComponent,
+                donotpaste_directive_1.DonotPasteDirective
+            ],
             providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, user_service_1.UserService, login_service_1.LoginService, auth_1.AuthGuard],
             bootstrap: [app_component_1.AppComponent]
         })

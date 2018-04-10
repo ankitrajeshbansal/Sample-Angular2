@@ -13,10 +13,18 @@ import { UserManageComponent } from './components/user/usermanage.component';
 import { UserService } from './Service/user.service';
 import { LoginService } from './Service/login.service';
 import { AuthGuard } from './_guards/auth'
+import { DonotPasteDirective } from './Shared/donotpaste.directive'
 
 @NgModule({
     imports: [BrowserModule, ReactiveFormsModule, HttpModule, routing, Ng2Bs3ModalModule],
-    declarations: [AppComponent, UserComponent, HomeComponent, LoginComponent, UserManageComponent],
+    declarations: [
+        AppComponent,
+        UserComponent,
+        HomeComponent,
+        LoginComponent,
+        UserManageComponent,
+        DonotPasteDirective
+    ],
     providers: [{ provide: APP_BASE_HREF, useValue: '/' }, UserService, LoginService, AuthGuard],
     bootstrap: [AppComponent]
 
