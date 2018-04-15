@@ -18,10 +18,12 @@ var user_component_1 = require("./components/user/user.component");
 var home_component_1 = require("./components/home/home.component");
 var login_component_1 = require("./components/login/login.component");
 var usermanage_component_1 = require("./components/user/usermanage.component");
+var error_component_1 = require("./components/error/error.component");
 var user_service_1 = require("./Service/user.service");
 var login_service_1 = require("./Service/login.service");
 var auth_1 = require("./_guards/auth");
 var donotpaste_directive_1 = require("./Shared/donotpaste.directive");
+var can_component_deactivate_guard_1 = require("./_guards/can-component-deactivate.guard");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -34,9 +36,10 @@ var AppModule = /** @class */ (function () {
                 home_component_1.HomeComponent,
                 login_component_1.LoginComponent,
                 usermanage_component_1.UserManageComponent,
-                donotpaste_directive_1.DonotPasteDirective
+                donotpaste_directive_1.DonotPasteDirective,
+                error_component_1.ErrorComponent
             ],
-            providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, user_service_1.UserService, login_service_1.LoginService, auth_1.AuthGuard],
+            providers: [{ provide: common_1.APP_BASE_HREF, useValue: '/' }, user_service_1.UserService, login_service_1.LoginService, auth_1.AuthGuard, can_component_deactivate_guard_1.CanDeactivateGuard],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);

@@ -238,6 +238,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="src\app\Components\error\error.component.html" />
     <Content Include="src\app\Components\user\user.component.html" />
     <Content Include="src\app\Components\user\usermanage.component.html" />
     <Content Include="src\systemjs.config.js" />
@@ -287,6 +288,7 @@
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
     <TypeScriptCompile Include="src\app\app.routing.ts" />
+    <TypeScriptCompile Include="src\app\Components\error\error.component.ts" />
     <TypeScriptCompile Include="src\app\Components\home\home.component.ts" />
     <TypeScriptCompile Include="src\app\Components\login\login.component.ts" />
     <TypeScriptCompile Include="src\app\Components\user\user.component.ts" />
@@ -300,6 +302,7 @@
     <TypeScriptCompile Include="src\app\Shared\enum.ts" />
     <TypeScriptCompile Include="src\app\Shared\global.ts" />
     <TypeScriptCompile Include="src\app\_guards\auth.ts" />
+    <TypeScriptCompile Include="src\app\_guards\can-component-deactivate.guard.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

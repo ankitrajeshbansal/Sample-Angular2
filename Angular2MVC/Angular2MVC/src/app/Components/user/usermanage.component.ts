@@ -16,7 +16,7 @@ import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
 import { IUser } from '../../Model/user';
 import { IVmUser } from '../../Model/vmuser';
 import { DBOperation } from '../../Shared/enum';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 import { Global } from '../../Shared/global';
 
 @Component({

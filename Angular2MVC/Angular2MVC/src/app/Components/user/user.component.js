@@ -48,6 +48,9 @@ var UserComponent = /** @class */ (function () {
     UserComponent.prototype.loadUserChanged = function () {
         this.LoadUsers();
     };
+    UserComponent.prototype.canDeactivate = function () {
+        return confirm('are you sure to save all changes?');
+    };
     __decorate([
         core_1.ViewChild('testHeader'),
         __metadata("design:type", core_1.ElementRef)

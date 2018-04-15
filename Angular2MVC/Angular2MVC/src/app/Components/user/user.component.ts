@@ -13,12 +13,13 @@ import { DBOperation } from '../../Shared/enum';
 import { Observable } from 'rxjs/Rx';
 import { Global } from '../../Shared/global';
 import { UserManageComponent } from '../user/usermanage.component'
+import { OnComponentDeactivate } from '../../_guards/can-component-deactivate.guard';
 
 @Component({
     templateUrl: 'src/app/Components/user/user.component.html'
 })
 
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnComponentDeactivate {
     @ViewChild('testHeader') header: ElementRef;
 
     users: IUser[];
@@ -60,6 +61,10 @@ export class UserComponent implements OnInit {
 
     loadUserChanged() {
         this.LoadUsers();
+    }
+
+    canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
+        return confirm('are you sure to save all changes?');
     }
     
 }
