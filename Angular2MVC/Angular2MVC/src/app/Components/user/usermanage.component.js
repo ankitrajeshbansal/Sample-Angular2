@@ -10,20 +10,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
 var user_service_1 = require("../../Service/user.service");
 var forms_1 = require("@angular/forms");
 var ng2_bs3_modal_1 = require("ng2-bs3-modal/ng2-bs3-modal");
 var enum_1 = require("../../Shared/enum");
 var global_1 = require("../../Shared/global");
 var UserManageComponent = /** @class */ (function () {
-    function UserManageComponent(fb, _userService, differs) {
+    function UserManageComponent(fb, _userService, differs, route) {
         this.fb = fb;
         this._userService = _userService;
         this.differs = differs;
+        this.route = route;
         this.onLoadUserChanged = new core_1.EventEmitter();
         this.differ = differs.find({}).create(null);
     }
     UserManageComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        //this.route.snapshot.params["id"];
+        this.route.params.subscribe(function (params) {
+            var id = params['id'];
+            if (id != null) {
+                _this.paramSubscription = _this._userService.get(global_1.Global.BASE_USER_ENDPOINT + id)
+                    .subscribe(function (users) {
+                    _this.vmuser = { User: users, dbops: enum_1.DBOperation.update };
+                    _this.modal.open();
+                }, function (error) { return _this.msg = error; });
+            }
+        });
         this.userFrm = this.fb.group({
             Id: [''],
             FirstName: ['', forms_1.Validators.required],
@@ -113,6 +127,12 @@ var UserManageComponent = /** @class */ (function () {
     UserManageComponent.prototype.SetControlsState = function (isEnable) {
         isEnable ? this.userFrm.enable() : this.userFrm.disable();
     };
+    //Route is not tightly coupled with component so 
+    //route param subscription exists when back again.
+    // need to unsubscribe on component destroy
+    UserManageComponent.prototype.ngOnDestroy = function () {
+        this.paramSubscription.unsubscribe();
+    };
     __decorate([
         core_1.Input(),
         __metadata("design:type", Object)
@@ -130,7 +150,10 @@ var UserManageComponent = /** @class */ (function () {
             selector: 'user-manage',
             templateUrl: 'src/app/Components/user/usermanage.component.html'
         }),
-        __metadata("design:paramtypes", [forms_1.FormBuilder, user_service_1.UserService, core_1.KeyValueDiffers])
+        __metadata("design:paramtypes", [forms_1.FormBuilder,
+            user_service_1.UserService,
+            core_1.KeyValueDiffers,
+            router_1.ActivatedRoute])
     ], UserManageComponent);
     return UserManageComponent;
 }());

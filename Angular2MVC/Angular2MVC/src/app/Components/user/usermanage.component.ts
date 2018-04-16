@@ -8,8 +8,10 @@
     DoCheck,
     Output,
     EventEmitter,
-    ElementRef
+    ElementRef,
+    OnDestroy
 } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { UserService } from '../../Service/user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
@@ -18,12 +20,13 @@ import { IVmUser } from '../../Model/vmuser';
 import { DBOperation } from '../../Shared/enum';
 import { Observable } from 'rxjs/Observable';
 import { Global } from '../../Shared/global';
+import { Subscription } from 'rxjs/Subscription'
 
 @Component({
     selector: 'user-manage',
     templateUrl: 'src/app/Components/user/usermanage.component.html'
 })
-export class UserManageComponent implements OnInit {
+export class UserManageComponent implements OnInit, OnDestroy  {
     @Input()
     vmuser: IVmUser;
 
@@ -38,11 +41,30 @@ export class UserManageComponent implements OnInit {
     modalBtnTitle: string;
     differ: any;
 
-    constructor(private fb: FormBuilder, private _userService: UserService, private differs: KeyValueDiffers) {
+    paramSubscription: Subscription;
+    constructor(
+        private fb: FormBuilder,
+        private _userService: UserService,
+        private differs: KeyValueDiffers,
+        private route: ActivatedRoute) {
         this.differ = differs.find({}).create(null);
     }
 
     ngOnInit(): void {
+        //this.route.snapshot.params["id"];
+        this.route.params.subscribe(
+            (params: Params) => {
+                let id = params['id']; 
+                if (id != null) {
+                    this.paramSubscription=  this._userService.get(Global.BASE_USER_ENDPOINT + id)
+                        .subscribe(users => {
+                            this.vmuser = { User: users, dbops: DBOperation.update };
+                            this.modal.open();
+                        },
+                        error => this.msg = <any>error);
+                }
+            }
+        );
         this.userFrm = this.fb.group({
             Id: [''],
             FirstName: ['', Validators.required],
@@ -53,7 +75,6 @@ export class UserManageComponent implements OnInit {
 
     ngDoCheck() {
         var changes = this.differ.diff(this.vmuser);
-
         if (changes) {
             switch (this.vmuser.dbops) {
                 case DBOperation.create:
@@ -152,5 +173,10 @@ export class UserManageComponent implements OnInit {
         isEnable ? this.userFrm.enable() : this.userFrm.disable();
     }
 
-    //
+    //Route is not tightly coupled with component so 
+    //route param subscription exists when back again.
+    // need to unsubscribe on component destroy
+    ngOnDestroy(): void {
+        this.paramSubscription.unsubscribe();
+    }
 }

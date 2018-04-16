@@ -2,6 +2,7 @@
 import { Routes, RouterModule } from '@angular/router';
 
 import { UserComponent } from './components/user/user.component';
+import { UserManageComponent } from './components/user/usermanage.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { ErrorComponent } from './components/error/error.component';
@@ -14,8 +15,9 @@ const appRoutes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full', canActivate: [AuthGuard]},
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'user', component: UserComponent, canActivate: [AuthGuard], canDeactivate: [CanDeactivateGuard] },
-    { path: '**', component: ErrorComponent, data: { message: 'Page not found.'} }
+	{ path: 'user/:id', component: UserManageComponent, canActivate: [AuthGuard] },    
+	{ path: '**', component: ErrorComponent, data: { message: 'Page not found.'} }
 ];
 
 export const routing: ModuleWithProviders =
-    RouterModule.forRoot(appRoutes);
+    RouterModule.forRoot(appRoutes, { useHash: true });
